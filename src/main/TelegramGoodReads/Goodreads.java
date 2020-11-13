@@ -23,6 +23,9 @@ public class Goodreads {
         this.result = new Result();
     }
 
+    public Goodreads() {
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }
@@ -54,7 +57,7 @@ public class Goodreads {
         return urlToConnect;
     }
 
-    public void parseWebsite() {
+    public String parseWebsite() {
         String url = queryUrlToConnect();
 
         //instantiate SAXBuilder
@@ -74,12 +77,14 @@ public class Goodreads {
             result.setAverageRating(rating);
             result.setDescription(desc);
 
+            return result.toString();
 
         } catch (JDOMException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 }

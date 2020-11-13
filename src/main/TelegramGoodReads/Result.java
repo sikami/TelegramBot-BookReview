@@ -37,6 +37,6 @@ public class Result {
     }
 
     public String toString() {
-        return this.bookTitle + "\n" + "Average rating: " + this.averageRating + "\n" + "Description: " + "\n" + this.description;
+        return this.bookTitle + "\n\n" + "Average rating: " + this.averageRating + "\n\n" + "Description: " + "\n" + this.description;
     }
 }
