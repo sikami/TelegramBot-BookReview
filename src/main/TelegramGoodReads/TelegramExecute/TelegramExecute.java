@@ -1,11 +1,11 @@
-package Test;
+package TelegramExecute;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-public class Test extends TelegramLongPollingBot {
+public class TelegramExecute extends TelegramLongPollingBot {
     public String getBotUsername() {
         return "testbot";
     }
@@ -15,17 +15,20 @@ public class Test extends TelegramLongPollingBot {
     }
 
     public void onUpdateReceived(Update update) {
-        if (update.hasMessage() && update.getMessage().getText().equals("/hello")) {
-            SendMessage message = new SendMessage();
-            message.setChatId(update.getMessage().getChatId().toString());
-            message.setText("Hello, how are you today?");
-            
 
-            try {
-                execute(message);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+        SendMessage message = new SendMessage();
+        message.setChatId(update.getMessage().getChatId().toString());
+        if (update.hasMessage() && update.getMessage().getText().equals("/start")) {
+            message.setText("Hi, I am your book review Bot. Please type /help if you want to know all the commands. If you wonder where the review is coming from, it is from Goodreads!");
+        } else if (update.hasMessage() && update.getMessage().getText().equals("/help")) {
+
         }
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
     }
 }
