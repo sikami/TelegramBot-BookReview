@@ -19,6 +19,7 @@ public class Test extends TelegramLongPollingBot {
             SendMessage message = new SendMessage();
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("Hello, how are you today?");
+            
 
             try {
                 execute(message);
