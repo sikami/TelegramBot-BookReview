@@ -68,11 +68,15 @@ public class Goodreads {
             //get Element node
             Element rootNode = document.getRootElement();
             Element next = rootNode.getChild("book");
+            Element author = next.getChild("authors");
+            Element authorChild = author.getChild("author");
+            String authorReal = authorChild.getChildText("name");
 
             String title = next.getChildText("title");
             String rating = next.getChildText("average_rating");
             String desc = next.getChildText("description").replaceAll("<.*?>", "");
 
+            result.setAuthor(authorReal);
             result.setBookTitle(title);
             result.setAverageRating(rating);
             result.setDescription(desc);
