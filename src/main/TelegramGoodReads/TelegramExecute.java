@@ -8,16 +8,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TelegramExecute extends TelegramLongPollingBot {
     private Result text = new Result();
-
-
     public String getBotUsername() {
         return "testbot";
     }
-
     public String getBotToken() {
         return "1336596386:AAHtuEOIe5X_8zi_V5BfN8MaN7uE7Jh9BwE";
     }
-
     public void onUpdateReceived(Update update) {
         SendMessage message = new SendMessage();
         message.setChatId(update.getMessage().getChatId().toString());
