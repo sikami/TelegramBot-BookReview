@@ -1,6 +1,11 @@
-package Test;
-
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 import org.xml.sax.XMLReader;
+
+import java.io.IOException;
+import java.util.List;
 
 public class Goodreads {
     private String apiKey;
@@ -8,34 +13,34 @@ public class Goodreads {
     private String url;
     private String author;
     private XMLReader reader;
+    private Result result;
 
     public Goodreads(String bookname) {
-        this.bookname = bookname;
-        this.bookname.trim();
+        this.bookname = bookname.trim().replace(" ", "+");
         this.author = "";
         this.apiKey = "key=hgTduibWyDqLAgu1v6wnRQ" ;
         this.url = "https://www.goodreads.com/book/title.xml?";
+        this.result = new Result();
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getApiKey() {
+    public void setBookname(String bookname) {
+        this.bookname = bookname;
+    }
+
+    private String getApiKey() {
         return apiKey;
     }
 
-    public String getUrl() {
+    private String getUrl() {
         return url;
     }
 
-    public String queryUrlToConnect() {
+    private String queryUrlToConnect() {
         String urlToConnect;
-
-        //check if this.bookname contains space
-        if (this.bookname.contains(" ")) {
-            this.bookname.replace(" ", "+");
-        }
 
         //check if user gives author's name
         if (this.author.equals("")) {
@@ -48,6 +53,35 @@ public class Goodreads {
 
         return urlToConnect;
     }
+
+    public void parseWebsite() {
+        String url = queryUrlToConnect();
+
+        //instantiate SAXBuilder
+        SAXBuilder builder = new SAXBuilder();
+        try {
+            //instantiate Document to build or parse web
+            Document document = builder.build(url);
+            //get Element node
+            Element rootNode = document.getRootElement();
+            Element next = rootNode.getChild("book");
+
+            String title = next.getChildText("title");
+            String rating = next.getChildText("average_rating");
+            String desc = next.getChildText("description").replaceAll("<.*?>", "");
+
+            result.setBookTitle(title);
+            result.setAverageRating(rating);
+            result.setDescription(desc);
+
+
+        } catch (JDOMException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 
@@ -69,3 +103,24 @@ public class Goodreads {
  sample with author: https://www.goodreads.com/book/title.xml?author=Arthur+Conan+Doyle&key=hgTduibWyDqLAgu1v6wnRQ&title=Hound+of+the+Baskervilles
  **/
 
+
+//need to catch this
+//book title, average rating, description
+/**<book>
+<id>8921</id>
+<title>
+<![CDATA[
+The Hound of the Baskervilles (Sherlock Holmes, #5)
+]]>
+</title>
+
+
+ <average_rating>4.12</average_rating>
+
+
+ <description>
+ <![CDATA[
+ blah blah
+ ]]>
+ </description>
+ **/

@@ -15,16 +15,9 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
+        Goodreads goodreads = new Goodreads("The Hound of the Baskervilles");
+        goodreads.parseWebsite();
 
     }
 }
 
-//parse XML like this:
-// String url = "http://api.indeed.com/ads/apisearch?publisher=8397709210207872&q=java&l=austin%2C+tx&sort&radius&st&jt&start&limit&fromage&filter&latlong=1&chnl&userip=1.2.3.4&v=2";
-//
-//try
-//{
-//  DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-//  DocumentBuilder b = f.newDocumentBuilder();
-//  Document doc = b.parse(url);
-//}
