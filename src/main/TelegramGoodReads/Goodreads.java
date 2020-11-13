@@ -45,7 +45,7 @@ public class Goodreads {
     private String queryUrlToConnect() {
         String urlToConnect;
 
-        //check if user gives author's name
+        //check if user gives author's name, in this case, author is never an option for user to give
         if (this.author.equals("")) {
             urlToConnect = this.url + this.apiKey + "&title=" + this.bookname;
         } else {
