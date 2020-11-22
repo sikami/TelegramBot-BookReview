@@ -10,10 +10,11 @@ A personal project for Telegram Bot. This app is written in Java and is designed
 It will look like this:
 <br>
 <br>
-![bookreview, telegrambot](/home/listya/Pictures/bookreview.png)
+![bookreview](home/listya/Pictures/bookreview.png)
 <br>
 <br>
-## FUTURE PLAN
+FUTURE PLAN
+------------
 <br>
 <br>
 There are possible additionals features that will follow in future which is:
