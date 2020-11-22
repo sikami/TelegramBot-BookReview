@@ -9,7 +9,7 @@
 It will look like this:
 <br>
 <br>
-![bookreview](home/listya/Pictures/bookreview.png)
+![bookreview](bookreview.png)
 <br>
 <br>
 <h2> FUTURE PLAN </h2>
