@@ -1,7 +1,6 @@
 <h1>Telegram Bot - Book Review</h1>
 
-
-<h2> DESCRIPTION </h2>
+<h3> DESCRIPTION </h3>
 
 <p>A personal project for Telegram Bot. This app is written in Java and is designed to retrieve book's complete title, author, review, and its description via Goodreads API.</p>
 <br>
@@ -12,9 +11,9 @@ It will look like this:
 ![bookreview](bookreview.png)
 <br>
 <br>
-<h2> FUTURE PLAN </h2>
+<h3> FUTURE PLAN </h3>
 <br>
-There are possible additionals features that will follow in future which is:
+There are possible additional fix that will follow in future, such as:
 <br>
 <ul>
 <li> Additional documents to explain how it works, technically </li>
