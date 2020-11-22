@@ -1,0 +1,12 @@
+#  Ignore the Api in source
+/home/listya/Documents/Belajar/JAVA/personalProject/TelegramBot/src/main/TelegramGoodReads/Api/
+
+# Ignore the .idea
+/home/listya/Documents/Belajar/JAVA/personalProject/TelegramBot/.idea/
+
+# Ignore target
+/home/listya/Documents/Belajar/JAVA/personalProject/TelegramBot/target/
+
+# Ignore pomfile and iml
+*.iml
+*.xml
